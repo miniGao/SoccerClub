@@ -1,0 +1,62 @@
+﻿@model Club
+@{
+    ViewBag.Title = "Club Details";
+}
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-success">@TempData["message"]</div>
+}
+@if (TempData["warning"] != null)
+{
+    <div class="alert alert-danger">@TempData["warning"]</div>
+}
+<div>
+    <div class="row">
+        <div class="col-8"><h2>@Model.Name</h2></div>
+        <div class="col-4">
+            @await Component.InvokeAsync(nameof(ClubDetailsSummary), new { clubId = Model.ClubID })
+        </div>
+    </div>
+    <hr />
+    <div class="block">
+        <div class="title font-weight-bold"><u>Club Information</u></div>
+        <p>@Model.Information</p>
+    </div>
+    <hr />
+    <div class="block">
+        <div class="title font-weight-bold"><u>Contact</u></div>
+        <p>Phone: @Model.Phone</p>
+        <p>Address: @Model.Address</p>
+    </div>
+    <div>
+        <a class="btn btn-success col-12" asp-action="Update" asp-controller="CRUD" asp-route-clubId="@Model.ClubID">Update and Delete</a>
+    </div>
+    <hr />
+    <div class="block">
+        <div class="title font-weight-bold"><u>Registered Players</u></div>
+        <b>Filter by: </b>
+        <a class="btn btn-sm btn-secondary" asp-action="ClubDetails" asp-route-clubId="@Model.ClubID">All</a>
+        <a class="btn btn-sm btn-secondary" asp-action="ClubDetails" asp-route-clubId="@Model.ClubID" asp-route-filter="forward">Forward</a>
+        <a class="btn btn-sm btn-secondary" asp-action="ClubDetails" asp-route-clubId="@Model.ClubID" asp-route-filter="midfielder">Midfielder</a>
+        <a class="btn btn-sm btn-secondary" asp-action="ClubDetails" asp-route-clubId="@Model.ClubID" asp-route-filter="defender">Defender</a>
+        <a class="btn btn-sm btn-secondary" asp-action="ClubDetails" asp-route-clubId="@Model.ClubID" asp-route-filter="goalkeeper">GoalKeeper</a>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Position</th>
+            </tr>
+            @foreach (Player p in Model.Players)
+            {
+                <tr>
+                    <td>@p.Name</td>
+                    <td>@p.Age</td>
+                    <td>@p.Position</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div>
+        <a class="btn btn-success col-12" asp-action="PlayerManagement" asp-controller="Player" asp-route-clubId="@Model.ClubID">Manage Player</a>
+    </div>
+</div>

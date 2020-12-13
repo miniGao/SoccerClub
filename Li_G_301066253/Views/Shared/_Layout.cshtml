@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header>
+        <a asp-action="Home" asp-controller="Home">
+            <img class="logo" src="~/images/logo.png" />
+        </a>
+        <nav>
+            <div class="nav-right">
+                <a class="text-decoration-none" asp-action="Home" asp-controller="Home">Home</a>
+                <a class="text-decoration-none" asp-action="Clubs" asp-controller="Home">Clubs</a>
+                <a class="text-decoration-none" asp-action="AddClub" asp-controller="Home">Add a Club</a>
+                <a class="text-decoration-none" asp-action="Login" asp-controller="Account">Login/Logout</a>
+            </div>
+        </nav>
+    </header>
+    <div class="mainbody">
+        @RenderBody()
+    </div>
+    <footer>
+        &copy;ASP.NET Project by C229-G15
+    </footer>
+</body>
+</html>

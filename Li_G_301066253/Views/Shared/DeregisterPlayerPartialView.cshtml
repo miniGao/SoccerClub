@@ -1,0 +1,17 @@
+﻿@model ManagePlayerModel
+
+<input type="hidden" asp-for="Club.ClubID" />
+<div class="form-group">
+    <label asp-for="Player.PlayerID">Select Player:</label>
+    <div><span asp-validation-for="Player.PlayerID" class="text-danger"></span></div>
+    <select asp-for="Player.PlayerID" class="form-control">
+        @foreach (Player p in Model.Players)
+        {
+            <option value="@p.PlayerID">@p.Name, Age: @p.Age, Position: @p.Position</option>
+        }
+    </select>
+    <label>Sort by: </label>
+    <a class="btn btn-sm btn-secondary" asp-action="PlayerManagement" asp-route-clubId="@Model.Club.ClubID" asp-route-order="name">Name</a>
+    <a class="btn btn-sm btn-secondary" asp-action="PlayerManagement" asp-route-clubId="@Model.Club.ClubID" asp-route-order="age">Age</a>
+    <a class="btn btn-sm btn-secondary" asp-action="PlayerManagement" asp-route-clubId="@Model.Club.ClubID" asp-route-order="position">Position</a>
+</div>

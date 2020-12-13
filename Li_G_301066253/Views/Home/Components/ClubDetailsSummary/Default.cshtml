@@ -1,0 +1,34 @@
+﻿@model PlayersViewModel
+
+<table class="table table-sm table-borderless">
+    <tr>
+        <td><b>Total Players:</b></td>
+        <td class="text-right">
+            @Model.PlayerQty
+        </td>
+    </tr>
+    <tr>
+        <td><b>Forward:</b></td>
+        <td class="text-right">
+            @Model.ForwardQty
+        </td>
+    </tr>
+    <tr>
+        <td><b>Midfielder:</b></td>
+        <td class="text-right">
+            @Model.MidfieldQty
+        </td>
+    </tr>
+    <tr>
+        <td><b>Defender:</b></td>
+        <td class="text-right">
+            @Model.DefenderQty
+        </td>
+    </tr>
+    <tr>
+        <td><b>GoalKeeper:</b></td>
+        <td class="text-right">
+            @Model.GoalKeeperQty
+        </td>
+    </tr>
+</table>

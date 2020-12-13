@@ -1,0 +1,24 @@
+﻿@model Club
+@{
+    ViewBag.Title = "Add Club";
+}
+@if (TempData["warning"] != null)
+{
+    <div class="alert alert-danger">@TempData["warning"]</div>
+}
+<div class="float-right">
+    <a class="btn btn-danger" asp-action="Logout" asp-controller="Account">Log Out</a>
+</div>
+<div>
+    <h2>Add a Club</h2>
+    <hr />
+    <div class="block">
+        <form asp-action="AddClub" method="post">
+            @Html.Partial("ClubFormPartialView")
+            <div class="btn-group col-12">
+                <button class="btn btn-success col-6" type="submit">Save</button>
+                <a class="btn btn-danger col-6" asp-action="Home">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>

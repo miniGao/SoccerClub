@@ -1,0 +1,35 @@
+﻿@model ManagePlayerModel
+
+<div>
+    <label asp-for="Player.Name">Enter Player Name:</label>
+    <div><span asp-validation-for="Player.Name" class="text-danger"></span></div>
+    <input asp-for="Player.Name" class="form-control" />
+</div>
+<div class="form-group">
+    <label asp-for="Player.Age">Enter Player Age:</label>
+    <select asp-for="Player.Age" class="form-control">
+        @for (int i = 16; i < 36; i++)
+        {
+            <option>@i</option>
+        }
+    </select>
+</div>
+<div class="form-group">
+    <label asp-for="Player.Position">Select Position:</label>
+    <select asp-for="Player.Position" class="form-control">
+        <option>Forward</option>
+        <option>Midfielder</option>
+        <option>Defender</option>
+        <option>Goalkeeper</option>
+    </select>
+</div>
+<div class="form-group">
+    <label asp-for="Player.ClubID">Select Club:</label>
+    <select asp-for="Player.ClubID" class="form-control">
+        <option value="@Model.Club.ClubID" selected>@Model.Club.Name</option>
+        @foreach (Club c in Model.Clubs)
+        {
+            <option value="@c.ClubID">@c.Name</option>
+        }
+    </select>
+</div>

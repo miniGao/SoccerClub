@@ -1,0 +1,60 @@
+﻿@model ManagePlayerModel
+@{
+    ViewBag.Title = "Player Management";
+}
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-success">@TempData["message"]</div>
+}
+@if (TempData["warning"] != null)
+{
+    <div class="alert alert-danger">@TempData["warning"]</div>
+}
+
+<div class="float-right">
+    <a class="btn btn-danger" asp-action="Logout" asp-controller="Account">Log Out</a>
+</div>
+<div>
+    <h2>Manage Players in @Model.Club.Name</h2>
+    <hr />
+    <div class="row">
+        <div class="card-deck">
+            <div class="p-1">
+                <div class="card bg-transparent card-width img-fluid">
+                    <div class="title font-weight-bold"><u>Adding Player</u></div>
+                    <form asp-action="AddPlayer" method="post">
+                        @Html.Partial("AddPlayerPartialView")
+                        <button class="btn btn-success col-12" type="submit">Add</button>
+                    </form>
+                </div>
+            </div>
+            <div class="p-1">
+                <div class="card bg-transparent card-width img-fluid">
+                    <div class="title font-weight-bold"><u>Reassign Player</u></div>
+                    <form asp-action="ReassignPlayer" method="post">
+                        @Html.Partial("ReassignPlayerPartialView")
+                        <button class="btn btn-success col-12" type="submit">Reassign</button>
+                    </form>
+                </div>
+            </div>
+            <div class="p-1">
+                <div class="card bg-transparent card-width img-fluid">
+                    <div class="title font-weight-bold"><u>Deregister Player</u></div>
+                    <form asp-action="DeletePlayer" method="post">
+                        @Html.Partial("DeregisterPlayerPartialView")
+                        <button class="btn btn-success col-12" type="submit">Deregister</button>
+                    </form>
+                </div>
+            </div>
+            <div class="p-1">
+                <div class="card bg-transparent card-width img-fluid">
+                    <div class="title font-weight-bold"><u>Edit Player</u></div>
+                    <form asp-action="UpdatePlayer" method="post">
+                        @Html.Partial("UpdatePlayerPartialView")
+                        <button class="btn btn-success col-12" type="submit">Edit Player</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

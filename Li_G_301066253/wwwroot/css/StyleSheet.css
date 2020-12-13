@@ -1,0 +1,103 @@
+﻿body {
+    font-family: sans-serif;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/soccerfield.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    text-align:center;
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    background-color: #acacac;
+    box-shadow: 3px 3px black;
+}
+
+nav {
+    width: 100%;
+}
+
+nav a {
+    display: inline-block;
+    font-weight: bold;
+    color: black;
+    margin-left: 30px;
+}
+
+nav a:hover {
+    color: white;
+}
+
+nav a::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 0%;
+    background-color: black;
+    transition: ease-in-out 200ms;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+table, th, td {
+    padding: 5px;
+}
+
+footer {
+    background-color: #acacac;
+    color: black;
+    font-weight: bolder;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+}
+
+.logo {
+    height: 61px;
+    width: 170px;
+}
+
+.nav-right {
+    float: right;
+    padding-top: 30px;
+    padding-right: 30px;
+}
+
+.mainbody {
+    display: inline-block;
+    text-align: left;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 20px;
+    min-width:550px;
+    background-color: #acacac;
+    border-radius: 20px;
+    background: rgba(200,200,200,0.95);
+}
+
+.block {
+    padding: 20px;
+}
+
+.title{
+    padding-bottom:20px;
+}
+
+.club-link{
+    color:darkgreen;
+}
+
+.card-width {
+    width: 23rem;
+}

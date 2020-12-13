@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Club>
+@{
+    ViewBag.Title = "Collection of Clubs";
+}
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-success">@TempData["message"]</div>
+}
+@if (TempData["warning"] != null)
+{
+    <div class="alert alert-danger">@TempData["warning"]</div>
+}
+<div>
+    <div class="row">
+        <div class="col-7"><h2>List of Clubs</h2></div>
+        <div class="col-5">
+            @await Component.InvokeAsync(nameof(ClubsSummary))
+        </div>
+    </div>
+    <div class="text-center">
+        @foreach (Club c in Model)
+        {
+            <hr />
+            <div class="block">
+                <a class="text-uppercase font-italic font-weight-bold club-link" asp-action="ClubDetails" asp-route-clubId="@c.ClubID">@c.Name</a>
+            </div>
+        }
+    </div>
+</div>
